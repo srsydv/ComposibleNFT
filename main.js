@@ -3,7 +3,6 @@ const cNFTaddress = '0x4152Fc590604ABA08582198E309140eC9D162b54';
 const Web3 = require("web3");
 const ERC20Address =  document.getElementById("ERC20Address");
 const MTK = '0x08268C6A177Cd529DEAB226829C739C93f463994'
-// const MTK = ERC20Address.value
 const ERC20ABI = require('./ERC20.json')
 let deployedNetworkERC20;
   init = async () => {
@@ -24,10 +23,9 @@ let deployedNetworkERC20;
         ERC20ABI,
         MTK
       );
-      console.log('Hi',cNFTmethods);
     
     accounts = await web3.eth.getAccounts();
-    console.log("All Set up!!");
+    console.log('Account',accounts[0])
   };
 
   mintNFT = async () => {
