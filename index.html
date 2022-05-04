@@ -9,109 +9,140 @@
   <body>
     <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
     <script type="module" src="main.js"></script>
-    <div id="createItem">
-        <h4>Mint NFT</h4>
-        <input
-        type="text"
-        id="ownerAddress"
-        required
-        placeholder="Enter owner Address"
-      />
+    <body>
+    
+      <div id="createItem">
+          <h4>1-Mint NFT</h4>
+          <input
+          type="text"
+          id="ownerAddress"
+          required
+          placeholder="Enter owner Address"
+        />
+    
+          <button id="btnCreateItem">Mint NFT</button>
+      </div>
+      <br>
+      -----------------------------------------------------------
   
-        <button id="btnCreateItem">Mint NFT</button>
-    </div>
-
-    <!-- <div id="createErc20">
-        <h4>Mint ERC20 Tokens</h4>
-        <input
-        type="text"
-        id="ownerAddressERC20"
-        required
-        placeholder="Enter owner Address"
-      />
-      <input
-        type="number"
-        id="tokenAmount"
-        required
-        placeholder="Enter Amount"
-      />
+          <div>
+        <div id="Approve">
+            <h4>2-Approve</h4>
+            
+            <input
+            type="text"
+            id="erc20token"
+            required
+            placeholder="ERC20 Address"
+          />
+          <input
+            type="text"
+            id="tokenamount1"
+            required
+            placeholder="Enter Amount"
+          />
+      
+            <button id="btnApprove">Approve</button>
+            <span id="123"></span>
+            
+        </div>
   
-        <button id="btnCreateERC20">Mint ERC20</button>
-    </div> -->
-
-    <div id="getERC20">
-        <h4>Energize with ERC20</h4>
+      <!-- <div id="createErc20">
+          <h4>Mint ERC20 Tokens</h4>
+          <input
+          type="text"
+          id="ownerAddressERC20"
+          required
+          placeholder="Enter owner Address"
+        />
         <input
-        type="number"
-        id="getTokenId"
-        required
-        placeholder="Enter token Id"
-      />
-      <input
-        type="text"
-        id="ERC20Address"
-        required
-        placeholder="ERC20 Address"
-      />
-        <input
-        type="number"
-        id="getTokenAmount"
-        required
-        placeholder="Enter token amount"
-      />
+          type="number"
+          id="tokenAmount"
+          required
+          placeholder="Enter Amount"
+        />
+    
+          <button id="btnCreateERC20">Mint ERC20</button>
+      </div> -->
   
-        <button id="btnGetToken">Energize</button>
-    </div>
-<!-- 
-    <div id="getERC20">
-        <h4>Release ERC20 from NFT</h4>
+      <div id="getERC20">
+          <h4>3-Energize with ERC20</h4>
+          <input
+          type="number"
+          id="getTokenId"
+          required
+          placeholder="Enter token Id"
+        />
         <input
-        type="text"
-        id="senderAddressERC20"
-        required
-        placeholder="Enter sender Address"
-      />
+          type="text"
+          id="ERC20Address"
+          required
+          placeholder="ERC20 Address"
+        />
+          <input
+          type="number"
+          id="getTokenAmount"
+          required
+          placeholder="Enter token amount"
+        />
+    
+          <button id="btnGetToken">Energize</button>
+      </div>
+      <br>
+  ---------------------------------------------------------------------------------
+      <div id="getERC20">
+          <h4>4-Release ERC20 from NFT</h4>
+          <input
+          type="text"
+          id="receverAddressofERC20"
+          required
+          placeholder="Enter sender Address"
+        />
+          <input
+          type="number"
+          id="TokenIdofNFT"
+          required
+          placeholder="Enter token Id"
+        />
         <input
-        type="number"
-        id="sendTokenId"
-        required
-        placeholder="Enter token Id"
-      />
-        <input
-        type="number"
-        id="sendTokenAmount"
-        required
-        placeholder="Enter token amount"
-      />
+          type="text"
+          id="Erc20address1"
+          required
+          placeholder="ERC20 Address"
+        />
+          <input
+          type="number"
+          id="sendTokenAmount"
+          required
+          placeholder="Enter token amount"
+        />
+    
+          <button id="btnSendToken">Release ERC20 tokens</button>
+      </div>
+  <!-- 
+      <div id="balance">
+          <h4>Balance of NFT</h4>
+          <input
+          type="number"
+          id="balanceTokenId"
+          required
+          placeholder="Enter token Id"
+        />
+    
+          <button id="btnTokenBalance">Show NFT Balance</button>
+      </div>
   
-        <button id="btnSendToken">Release ERC20 tokens</button>
-    </div>
-
-    <div id="balance">
-        <h4>Balance of NFT</h4>
-        <input
-        type="number"
-        id="balanceTokenId"
-        required
-        placeholder="Enter token Id"
-      />
+      <div id="balanceAccount">
+          <h4>Balance of Account</h4>
+          <input
+          type="text"
+          id="balanceAccountAddress"
+          required
+          placeholder="Enter Account Address"
+        />
+    
+          <button id="btnAccountBalance">Show Account Balance</button>
+      </div> -->
   
-        <button id="btnTokenBalance">Show NFT Balance</button>
-    </div>
-
-    <div id="balanceAccount">
-        <h4>Balance of Account</h4>
-        <input
-        type="text"
-        id="balanceAccountAddress"
-        required
-        placeholder="Enter Account Address"
-      />
-  
-        <button id="btnAccountBalance">Show Account Balance</button>
-    </div> -->
-
-    <!-- <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script> -->
-    <!-- <script src="main.js"></script> -->
   </body>
 </html>
