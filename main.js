@@ -1,5 +1,6 @@
 const cNFTabi = require('./cNFTabi.json');
-const cNFTaddress = '0x4152Fc590604ABA08582198E309140eC9D162b54';
+// const cNFTaddress = '0x4152Fc590604ABA08582198E309140eC9D162b54';
+const cNFTaddress = '0xbc537af2Ea776dCEcb21F847f642EAC8eAf6D4C5'
 const Web3 = require("web3");
 const ERC20Address =  document.getElementById("ERC20Address");
 const MTK = '0x08268C6A177Cd529DEAB226829C739C93f463994'
@@ -18,6 +19,7 @@ let deployedNetworkERC20;
         cNFTabi,
         cNFTaddress
       );
+      // console.log('methods',cNFTmethods)
       const id = await web3.eth.net.getId();
     //   deployedNetworkERC20 = ERC20ABI.networks[id];
       contractERC20 = new web3.eth.Contract(
@@ -108,5 +110,66 @@ const TokenIdofNFT = document.getElementById("TokenIdofNFT");
 const btnSendToken = document.getElementById("btnSendToken");
 btnSendToken.onclick = ReleaseERC20;
 
+  // "0x4c676085933233E3b875De927D7E05212C20c800"
+  safeTransferFroms = async() => {
+    await cNFTmethods.methods
+      .safeTransferFrom(accounts[0],Add.value, tknno.value)
+      .send({ from: accounts[0] })
+      .once("receipt", (reciept) => {
+        console.log(reciept);
+        if(reciept){
+          document.getElementById('005').innerHTML = 'Transfered';
+        }
+    });
+  }
+  const Add = document.getElementById("Add");
+  const tknno = document.getElementById("004");
+    const safeTransferFrom1 = document.getElementById("safeTransferFrom");
+    safeTransferFrom1.onclick = safeTransferFroms;
+
+
+    creatorOfs = async() => {
+      await cNFTmethods.methods
+        . knowCreater(tk1.value)
+        .call(
+          function(err,res){
+            if(res){
+              console.log("creater",res)
+              document.getElementById('00').innerHTML = res;
+            }
+          }
+        )
+    }
+    const tk1 = document.getElementById("002");
+      const creatorOf1 = document.getElementById("creatorOf");
+      creatorOf1.onclick =  creatorOfs;
+  
+      ownerOfs = async() => {
+        await cNFTmethods.methods
+          . ownerOf(tk2.value)
+          .call(
+            function(err,res){
+              if(res){
+                console.log("Owner",res)
+                document.getElementById('001').innerHTML = res;
+              }
+            }
+          )
+      }
+      const tk2 = document.getElementById("003");
+        const ownerOf1 = document.getElementById("ownerOf");
+        ownerOf1.onclick =  ownerOfs;
+
+
+        showBalanceOfNFT = async () => {
+          const receipt = await cNFTmethods.methods
+            .balanceOfERC20(tid.value,enterAddress.value)
+            .call();
+          console.log(receipt);
+        };
+        const enterAddress = document.getElementById("enterAddress");
+        const tid = document.getElementById("tid");
+        const btnAccountBalance = document.getElementById("btnAccountBalance");
+btnAccountBalance.onclick = showBalanceOfNFT;
 
   init();
