@@ -32,11 +32,14 @@ let deployedNetworkERC20;
   };
 
   mintNFT = async () => {
+    document.getElementById('process1').innerHTML = '🔜';
     await cNFTmethods.methods
       .mint(ownerAddress.value)
       .send({ from: accounts[0] })
       .once("receipt", (reciept) => {
         console.log(reciept);
+        let data = JSON.stringify(reciept.events.Transfer.returnValues.tokenId);
+      document.getElementById('11').innerHTML = data;
     });
     console.log("Minted!!");
   };
@@ -47,6 +50,7 @@ const btnMintNFT = document.getElementById("btnCreateItem");
 btnMintNFT.onclick = mintNFT;
 
 Approve = async() => {
+  document.getElementById('123').innerHTML = 'Processing🔜';
   contractERC20 = new web3.eth.Contract(
     ERC20ABI,
     erc20token.value
@@ -55,6 +59,7 @@ await contractERC20.methods
   .approve(cNFTaddress, tokenamount1.value)
   .send({ from: accounts[0] });
 console.log("approved");
+document.getElementById('123').innerHTML = "Approved👍";
 }
 const erc20token = document.getElementById("erc20token");
 const tokenamount1 = document.getElementById("tokenamount1");
@@ -62,7 +67,7 @@ const btnApprove = document.getElementById("btnApprove");
 btnApprove.onclick = Approve;
 
   energizeWithERC20 = async () => {
-    
+    document.getElementById('1234').innerHTML = 'Processing🔜';
     const receipt = await cNFTmethods.methods
       .energizeWithERC20(
         accounts[0],
@@ -72,6 +77,7 @@ btnApprove.onclick = Approve;
       )
       .send({ from: accounts[0] });
     console.log(receipt);
+    document.getElementById('1234').innerHTML = "Energized!!✅";
     console.log("Energized!!");
   };
   const getTokenAmount = document.getElementById("getTokenAmount");
@@ -91,6 +97,7 @@ btnApprove.onclick = Approve;
 
 
 ReleaseERC20 = async () => {
+  document.getElementById('process3').innerHTML = 'Processing🔜';
   const receipt = await cNFTmethods.methods
     .transferERC20(
       TokenIdofNFT.value,
@@ -99,6 +106,7 @@ ReleaseERC20 = async () => {
       sendTokenAmount.value
     )
     .send({ from: accounts[0] });
+    document.getElementById('process3').innerHTML = 'Released!!✅';
   console.log(receipt);
   console.log("Released!!");
 };
@@ -118,7 +126,7 @@ btnSendToken.onclick = ReleaseERC20;
       .once("receipt", (reciept) => {
         console.log(reciept);
         if(reciept){
-          document.getElementById('005').innerHTML = 'Transfered';
+          document.getElementById('005').innerHTML = 'Transfered!!✅';
         }
     });
   }
@@ -165,6 +173,7 @@ btnSendToken.onclick = ReleaseERC20;
           const receipt = await cNFTmethods.methods
             .balanceOfERC20(tid.value,enterAddress.value)
             .call();
+            document.getElementById('process4').innerHTML = receipt;
           console.log(receipt);
         };
         const enterAddress = document.getElementById("enterAddress");
