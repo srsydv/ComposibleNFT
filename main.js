@@ -126,7 +126,7 @@ btnSendToken.onclick = ReleaseERC20;
       .once("receipt", (reciept) => {
         console.log(reciept);
         if(reciept){
-          document.getElementById('005').innerHTML = 'Transfered!!✅';
+          document.getElementById('006').innerHTML = 'Transfered!!✅';
         }
     });
   }
