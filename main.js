@@ -32,7 +32,7 @@ let deployedNetworkERC20;
   };
 
   mintNFT = async () => {
-    document.getElementById('process1').innerHTML = '🔜';
+    document.getElementById('11').innerHTML = '🔜';
     await cNFTmethods.methods
       .mint(ownerAddress.value)
       .send({ from: accounts[0] })
